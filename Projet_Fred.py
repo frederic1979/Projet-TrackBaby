@@ -1,18 +1,4 @@
 
-
-
-
-# def Info(Genre,Age,Poids,Taille):
-#      return ("Bienvenue dans ce programme de vérification des constantes de votre nourrisson ! 
-
-
-
-# while Genre_enfant != "G" or Genre_enfant != "F" :
-#     return Genre_enfant = input("Entrer le genre de votre nourrisson en mois : ")
-
-# while Age_enfant>=0 and  Age_enfant<=60 :
-#     return Age_enfant = input("Entrer le genre de votre nourrisson en mois : ")
-
 #################################################
 # Définition des constantes pour les garçons
 low_weights_boys = [2.6, 3.6, 4.5, 5.2, 5.8, 6.2, 6.6, 6.9, 7.2, 7.4, 7.7, 7.9, 8.1, 8.2, 8.4, 8.6, 8.8,
@@ -73,7 +59,7 @@ high_skulls_girls = [35.8, 38.5, 40.2, 41.6, 42.7, 43.6, 44.3, 45, 45.6, 46, 46.
 
 Genre_enfant='default'
 while Genre_enfant !="G" and Genre_enfant !="F" :
-    Genre_enfant= input("Entrer le genre de votre nourrisson (F ou G): ?").upper()
+    Genre_enfant= input("Entrer le genre de votre nourrisson (F ou G): ").upper()
     if Genre_enfant == "G":
         Genre = "un garçon"
     else:
@@ -82,6 +68,7 @@ while Genre_enfant !="G" and Genre_enfant !="F" :
 
 Age_enfant = input("Veuillez entrer l'âge de votre nourrisson : ")
 
+# le try except nous permet : je test si Age_enfant est entier, si oui --> Age_enfant devient un entier / Sinon on retourne question "entrer nombre"
 bool = True
 while bool :
     try:
@@ -90,7 +77,7 @@ while bool :
     except ValueError:
         Age_enfant = input("Veuillez entrer un nombre : ")
 
-
+# à partir de là, Age_enfant est un entier, on s'occupe de l'encadrement
 while int(Age_enfant) < 0 or int(Age_enfant) > 60 :
     Age_enfant = input("Veuillez entrer l'âge de votre nourrisson : ")
 
@@ -101,7 +88,7 @@ while bool :
         Taille_enfant = float(Taille_enfant)
         bool = False
     except ValueError:
-        print("Entrez un nombre.")
+        print("Entrez un nombre : ")
 
 
 bool=True
@@ -121,18 +108,18 @@ while bool :
         Perim_enfant = float(Perim_enfant)
         bool = False
     except ValueError:
-        print("Entrez un nombre.")
+        print("Entrez un nombre : ")
 
 if Genre == 'un garçon' :
     print(f'la norme de poids pour {Genre} de {Age_enfant} mois  est située entre {low_weights_boys[Age_enfant]} kg et {high_weights_boys[Age_enfant]} kg')
     if Poids_enfant > low_weights_boys[Age_enfant] and  Poids_enfant < high_weights_boys[Age_enfant] :
-        print(f'le poids de votre enfant est de {Poids_enfant} kg, il est dans la norme')
+        print(f'le poids de votre enfant est de {Poids_enfant} kg, il est dans la norme \n')
     else :
-        print(f"le poids de votre enfant est de {Poids_enfant} kg, attention il n'est pas dans la norme")
+        print(f"le poids de votre enfant est de {Poids_enfant} kg, attention il n'est pas dans la norme \n")
 else :
     print(f'la norme de poids pour {Genre} de {Age_enfant} mois  est située entre {low_weights_girls[Age_enfant]} kg et {high_weights_girls[Age_enfant]} kg')
-    if Poids_enfant > low_weights_girls[Age_enfant] and  Poids_enfant < high_weights_girls[Age_enfant] :
-        print(f'le poids de votre enfant est de {Poids_enfant} kg, il est dans la norme')
+    if Poids_enfant > low_weights_girls[Age_enfant] and Poids_enfant < high_weights_girls[Age_enfant] :
+        print(f'le poids de votre enfant est de {Poids_enfant} kg, il est dans la norme \n')
     else :
         print(f"le poids de votre enfant est de {Poids_enfant} kg, attention il n'est pas dans la norme \n")    
 
